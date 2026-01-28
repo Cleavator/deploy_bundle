@@ -131,8 +131,8 @@ def crc_chatbot_rag(history, message, mode_ui="vanilla (fast)"):
     
     # Map UI mode to internal mode
     mode_map = {
-        "vanilla (fast)": "vanilla",
-        "agentic (deep)": "agentic"
+        "one-step (fast)": "vanilla",
+        "two-steps (deep)": "agentic"
     }
     mode_internal = mode_map.get(mode_ui, "vanilla")
     
@@ -510,8 +510,8 @@ with gr.Blocks(theme=theme, title="iDAPP-agent AI", css=css, analytics_enabled=F
                     msg = gr.Textbox(label="Question", placeholder="Type your question about CRC here...", lines=3)
                 with gr.Column(scale=1):
                     mode_radio = gr.Radio(
-                        choices=["vanilla (fast)", "agentic (deep)"],
-                        value="vanilla (fast)",
+                        choices=["one-step (fast)", "two-steps (deep)"],
+                        value="one-step (fast)",
                         label="Answer mode"
                     )
             
