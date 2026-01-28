@@ -1,0 +1,28 @@
+# Deployment Notes
+
+## Quick Start for Deployment (Minified)
+1.  **Setup Venv**: `python3 -m venv .venv && source .venv/bin/activate`
+2.  **Install Deps**: `pip install -r requirements.lock.txt`
+3.  **Configure Key**: 
+    *   Edit `.env` and set `DEEPSEEK_API_KEY=your_key_here`
+    *   OR `export DEEPSEEK_API_KEY=your_key_here`
+4.  **Run**: `python crc_gradio_app.py`
+5.  **Access**: http://localhost:7860
+
+## Environment Variables
+The application uses `python-dotenv` to load environment variables from a `.env` file if present.
+*   `DEEPSEEK_API_KEY`: Required. Your DeepSeek API key.
+
+## Dependencies
+Install frozen dependencies:
+```bash
+pip install -r requirements.lock.txt
+```
+*Note: `python-dotenv` is recommended for managing environment variables easily.*
+
+## Directory Structure
+- `crc_gradio_app.py`: Web UI entry point.
+- `crc_qa_v2.py`: RAG logic.
+- `drop/`: Droplet analysis models and logic.
+- `code/`: RAG Vector Index (`index.pkl`).
+- `bib_db.json`: Citation database.

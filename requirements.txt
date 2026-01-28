@@ -1,0 +1,26 @@
+# Core Dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scikit-image>=0.21.0
+opencv-python-headless>=4.8.0  # Headless for server/CLI environments
+matplotlib>=3.7.0
+seaborn>=0.12.0
+joblib>=1.3.0
+tqdm>=4.65.0
+PyYAML>=6.0
+
+# Deep Learning / Segmentation
+torch>=2.0.0
+torchvision>=0.15.0
+cellpose>=3.0.0
+
+# Web UI
+gradio>=4.0.0
+
+# RAG / NLP (if using the chatbot feature)
+sentence-transformers>=2.2.2
+openpyxl>=3.1.0
+
+# MCP (Model Context Protocol) server
+mcp>=1.23.1
