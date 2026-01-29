@@ -53,7 +53,15 @@ pip install -r requirements.lock.txt
 
 > You can also use `requirements.txt` if you prefer flexible versions.
 
-### 3) Configure environment variables
+### 3) Download Model Files
+
+The vector index files (`index.pkl`) are too large to host on GitHub.
+
+1. Download the files from this [Google Drive link](https://drive.google.com/drive/folders/1Fvqv-Eu5pdn1Sp0ZcH94BK5KBxHTL99n?usp=drive_link).
+2. Place the downloaded files (specifically `index.pkl`) into the `code/` directory.
+   - Ensure the path is `code/index.pkl`.
+
+### 4) Configure environment variables
 
 Copy the example and add your key:
 
@@ -102,7 +110,7 @@ Read the security guidance in `SECURITY_WARNING.md`. **Never commit `.env` or ke
 
 ## Troubleshooting
 
-- If the RAG answers are empty, confirm `code/index.pkl` exists.
+- If the RAG answers are empty, confirm `code/index.pkl` exists (see Setup step 3).
 - If the API errors, verify `DEEPSEEK_API_KEY` is set.
 - If GPU-related warnings appear, the app will still run on CPU.
 
