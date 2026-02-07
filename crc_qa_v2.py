@@ -528,6 +528,14 @@ def answer_crc_question(user_question: str, api_key: str = None, mode: str = "va
         log_entry["fallback"] = True
         log_entry["missing_evidence"] = True
         
+        effective_api_key = api_key or os.getenv("DEEPSEEK_API_KEY")
+        if not effective_api_key:
+             print("[RAG] No evidence and no API key.")
+             yield "No relevant internal documents found."
+             log_entry["time_taken"] = time.time() - start_time
+             yield log_entry
+             return
+
         system_prompt = "You are a helpful assistant. Provide a general medical overview clearly and directly. Do NOT include citations."
         user_prompt = f"Please provide a general overview of this topic without citing specific sources: {user_question}"
         
@@ -588,6 +596,16 @@ def answer_crc_question(user_question: str, api_key: str = None, mode: str = "va
         "IMPORTANT: You must ONLY use the source titles/pages provided in the context blocks. Do not hallucinate."
     )
     
+    # Check for API key availability
+    effective_api_key = api_key or os.getenv("DEEPSEEK_API_KEY")
+    
+    if not effective_api_key:
+        print("[RAG] No API key found. Returning context for external generation.")
+        yield f"**Retrieved Context:**\n\n{context_str}"
+        log_entry["time_taken"] = time.time() - start_time
+        yield log_entry
+        return
+
     user_prompt = f"Question: {user_question}\n\nContext:\n{context_str}"
     
     messages = [

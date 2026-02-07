@@ -92,17 +92,37 @@ python mcp_server.py
 
 ### Cherry Studio (MCP) Setup
 
+**Key Note**: When running as an MCP server in Cherry Studio, the Studio's active model can generate the response using the retrieved context. Therefore, **you do not need to provide a `DEEPSEEK_API_KEY`** unless you want the tool itself to perform the generation.
+
+#### JSON Configuration (Quick Setup)
+Paste the following into your MCP settings.
+
+```json
+{
+  "mcpServers": {
+    "crc-rag": {
+      "type": "stdio",
+      "command": "path/to/python",
+      "args": ["/absolute/path/to/deploy_bundle/mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/absolute/path/to/deploy_bundle"
+      }
+    }
+  }
+}
+```
+
+#### Manual Setup (UI)
 1. Open **Cherry Studio** → **Settings** → **MCP Servers**.
 2. Click **Add Server**.
 3. Choose **Stdio**.
 4. Command:
    - Windows: `python mcp_server.py`
    - macOS/Linux: `python3 mcp_server.py`
-5. Working directory: the project root folder.
-6. Environment variables:
-   - `DEEPSEEK_API_KEY=your_key_here`
+5. Working directory: The absolute path to the project folder.
+6. Environment variables: None needed (optional).
 
-After connecting, use the tool name `crc_rag_answer`.
+After connecting, enable the tool `crc_rag_answer`.
 
 ## Security Notes
 
