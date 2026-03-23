@@ -489,19 +489,19 @@ theme = gr.themes.Soft(
     font=[gr.themes.GoogleFont("Inter"), "ui-sans-serif", "system-ui"]
 )
 
-with gr.Blocks(theme=theme, title="iDAPP-agent AI", css=css, analytics_enabled=False) as demo:
+with gr.Blocks(theme=theme, title="MADAK-agent AI", css=css, analytics_enabled=False) as demo:
     # Header
     gr.Markdown(
         """
-        # 🔬 iDAPP-agent: Intelligent Colorectal Cancer Analysis Platform
+        # 🔬 MADAK-agent: Intelligent Colorectal Cancer Analysis Platform
         ### Dual-channel Digital Ago Analysis & RAG-based Clinical Assistant
         """,
         elem_classes="text-center"
     )
     
     with gr.Tabs():
-        with gr.Tab("iDAPP-agent (RAG)"):
-            gr.Markdown("### iDAPP-agent (RAG)\nThis tool does not provide medical advice. All outputs are for research and educational use only and must not be used for diagnosis or treatment.")
+        with gr.Tab("MADAK-agent (RAG)"):
+            gr.Markdown("### MADAK-agent (RAG)\nThis tool does not provide medical advice. All outputs are for research and educational use only and must not be used for diagnosis or treatment.")
 
             crc_chatbot = gr.Chatbot(label="CRC Assistant")
             
